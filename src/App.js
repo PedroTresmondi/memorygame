@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import SingleCard from './components/Card';
-import LeadCapture from './components/LeadCapture';
+import SingleCard from './components/Card/Card';
+import LeadCapture from './components/LeadCapture/LeadCapture';
 
-import ScoreBoard from './components/ScoreBoard';
-import { updateUserPointsInScoreboard, updateScoreboard } from './components/scoreboardUtils';
-import { cardImages } from './components/cardImages';
-import VictoryModal from './components/VictoryModal';
-import DefeatModal from './components/DefeatModal'; // Importa o novo modal
+import ScoreBoard from './components/Scoreboard/ScoreBoard';
+import { updateUserPointsInScoreboard, updateScoreboard } from './utils/scoreboardUtils';
+import { cardImages } from './components/Card/cardImages';
+import VictoryModal from './components/Modals/VictoryModal';
+import DefeatModal from './components/Modals/DefeatModal'; // Importa o novo modal
 
 
 
@@ -64,7 +64,14 @@ function App() {
   }, [sequenceCount]);
 
   const handleChoice = (card) => {
-    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+    // Desativa as cartas temporariamente se não houver escolhas feitas
+    if (!choiceOne || !choiceTwo) {
+      // Impede que a mesma carta seja escolhida duas vezes
+      if (!choiceOne || (choiceOne && choiceOne.id !== card.id)) {
+        setDisabled(true);
+        choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+      }
+    }
   }
   useEffect(() => {
     if (choiceOne && choiceTwo) {
@@ -72,11 +79,10 @@ function App() {
 
       if (choiceOne.src === choiceTwo.src) {
         const sequenceMultiplier = sequenceCount + 1; // Multiplicador de pontos com base na sequência
-        const newPoints = points + 250 * sequenceMultiplier;
+        const newPoints = points + 350 * sequenceMultiplier;
 
         setPoints(newPoints);
         updateUserPointsInScoreboard(leadData.name, newPoints);
-
         setAnimatePoints(true); // Ativar animação
 
         setCards((prevCards) => {
@@ -127,7 +133,6 @@ function App() {
         if (leadData) {
           // Atualize a pontuação no placar usando a pontuação acumulada
           updateScoreboard(leadData.name, accumulatedPoints);
-          console.log("turns depois do lead data " + turns);
         }
       }, 2000);
     } else {
@@ -159,7 +164,6 @@ function App() {
         setTurns((prevTurns) => prevTurns - 1);
       } else {
         updateUserPointsInScoreboard(leadData.name, points);
-        console.log("points " + points)
 
       }
     }
@@ -203,7 +207,7 @@ function App() {
             <div className='right-panel'>
               <div className='player-info' >
                 <p className='player-turns'>Turnos: {turns}</p>
-                <h2 className={rainbowText ? 'rainbow-text' : ''}>Pontuação: {points}</h2>
+                <p className={rainbowText ? 'rainbow-text' : ''}>Pontuação: {points}</p>
                 <p>{leadData.name}</p>
               </div>
               <div className="card-grid">

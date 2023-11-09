@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getScoreboardData } from './scoreboardUtils';
-
+import { getScoreboardData } from '../../utils/scoreboardUtils';
+import './Scoreboard.css'
 
 function ScoreBoard({ points, currentPlayerName, totalPoints, scoreboardData}) {
     const [playerData, setPlayerData] = useState([]);

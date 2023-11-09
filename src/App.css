@@ -1,12 +1,13 @@
 .App {
   max-width: 100%;
-  margin: 40px auto;
+  margin: 20px auto;
+  padding: 0 10px;
 }
 
 button {
   background: none;
   border: 2px solid #fff;
-  padding: 6px 12px;
+  padding: 8px 16px;
   border-radius: 4px;
   color: #fff;
   font-weight: bold;
@@ -21,21 +22,21 @@ button:hover {
 
 .card-grid {
   display: grid;
-  width: 50%;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 5px;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  grid-gap: 10px 2px;
+  grid-auto-rows: 1fr;
 }
 
 .left-panel {
-  margin-right: 20px;
+  margin-right: 10px;
   display: flex;
-  /* Defina o espaçamento desejado */
+  flex-direction: column;
 }
 
 .game-container {
   display: grid;
   grid-template-columns: 1fr;
-  /* Painéis são empilhados em telas estreitas */
 }
 
 .player-info {
@@ -43,51 +44,25 @@ button:hover {
   justify-content: space-around;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .game-container {
     grid-template-columns: 1fr 1fr 1fr;
-    /* Painéis são lado a lado em telas maiores */
   }
-}
-
-/* Ajuste o tamanho do card-grid para preencher o espaço disponível */
-.card-grid {
-  width: 100%;
-  /* Preenche o espaço disponível */
-  grid-template-columns: repeat(5, minmax(200px, 1fr));
-  /* Card-grid responsivo */
-  grid-gap: 10px 2px;
-
-}
-
-.scoreboard {
-  display: flex;
-  justify-content: space-between;
-  gap: 50px;
-  background-color: #c2386640;
-  border-collapse: collapse;
-  margin-bottom: 30px;
-  margin-top: 30px;
 
 
-}
+  .left-panel {
+    flex-direction: row;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 
-table,
-th,
-td {
-  border: 1px solid;
-  width: 50%;
-}
 
-table {
-  border-radius: 10px;
 }
 
 #confetti-canvas {
   position: absolute;
   top: 0;
 }
-
 
 .animate-points {
   animation: bounce 0.5s ease-in-out;
@@ -119,48 +94,38 @@ table {
 
 h2.animate-points-fade {
   visibility: hidden;
-  /* Evita que o elemento ocupe espaço após a animação */
 }
 
 .rainbow-text {
   animation: rainbow 2s linear infinite;
 }
 
-
-
 @keyframes rainbow {
   0% {
     color: #ff0000;
-    /* Vermelho */
   }
 
   16.666% {
     color: #ff8000;
-    /* Laranja */
   }
 
   33.333% {
     color: #ffff00;
-    /* Amarelo */
   }
 
   50% {
     color: #80ff00;
-    /* Verde */
   }
 
   66.666% {
     color: #00ff80;
-    /* Azul-Verde */
   }
 
   83.333% {
     color: #0080ff;
-    /* Azul */
   }
 
   100% {
     color: #8000ff;
-    /* Roxo */
   }
 }

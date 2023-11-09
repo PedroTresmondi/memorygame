@@ -16,7 +16,7 @@ const DefeatModal = ({ onRestart, onClose }) => {
         <div className="defeat-modal-overlay">
             <div className="defeat-modal">
                 <h1>Derrota!</h1>
-                <p>Você ficou sem turnos!</p>
+                <p>Você ficou sem turnos :( </p>
                 {/* Lógica adicional se necessário para exibir mais informações sobre a derrota */}
                 <div className="modal-buttons">
                     <button onClick={onRestart}>Tentar de Novo</button>

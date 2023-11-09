@@ -1,0 +1,23 @@
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #c2386640;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid;
+  }
+  
+  table {
+    border-radius: 10px;
+    width: 100%; /* Defina a largura da tabela como 100% */
+  }
+  
