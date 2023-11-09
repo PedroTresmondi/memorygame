@@ -20,6 +20,10 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [sequenceCount, setSequenceCount] = useState(0);
+  const [animatePoints, setAnimatePoints] = useState(false);
+
+
+
 
   // Shuffle cards for a new game
   const shuffleCards = () => {
@@ -32,7 +36,28 @@ function App() {
     setChoices([]);
     setVictory(false);
     setDefeat(false);
+    setPoints(0);
+    setSequenceCount(0); // Zera a contagem de sequência
+    setAnimatePoints(false); // Desativa a animação de pontos
   };
+
+
+  const [rainbowText, setRainbowText] = useState(false);
+
+  // Adicione uma useEffect para aplicar a classe e removê-la após a animação
+  useEffect(() => {
+    if (sequenceCount > 0) {
+      setRainbowText(true);
+
+      // Remova a classe após 2 segundos (duração da animação)
+      const timeoutId = setTimeout(() => {
+        setRainbowText(false);
+      }, 2000);
+
+      // Limpe o timeout ao desmontar o componente
+      return () => clearTimeout(timeoutId);
+    }
+  }, [sequenceCount]);
 
   // Handle a choice
   const handleChoice = (card) => {
@@ -51,6 +76,8 @@ function App() {
 
         setPoints(newPoints);
         updateUserPointsInScoreboard(leadData.name, newPoints);
+
+        setAnimatePoints(true); // Ativar animação
 
         setCards((prevCards) => {
           return prevCards.map((card) => {
@@ -100,14 +127,11 @@ function App() {
   const handleRestart = () => {
     setVictory(false);
     setDefeat(false);
-    setPoints(0);
+    setSequenceCount(0); // Zera a contagem de sequência
+    setAnimatePoints(false); // Desativa a animação de pontos
     shuffleCards();
   };
 
-  // Start a new game automatically
-  useEffect(() => {
-    shuffleCards();
-  }, []);
 
   // Function to start the game
   const handleStartGame = (lead) => {
@@ -146,9 +170,8 @@ function App() {
                 </div>
               </div>
               <div className='right-panel'>
-                {points > 0 && (
-                  <h2>Pontuação: {points}</h2>
-                )}
+                <h2 className={rainbowText ? 'rainbow-text' : ''}>Pontuação: {points}</h2>
+                <h2>{leadData.name}</h2>
                 <div className="card-grid">
                   {cards.map((card) => (
                     <SingleCard

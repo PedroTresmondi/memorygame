@@ -6,11 +6,17 @@ function VictoryScreen({ onStartGame }) {
     const [isOpen, setIsOpen] = useState(true);
 
     useEffect(() => {
-        const triangle = confetti.shapeFromPath({ path: 'M0 10 L5 0 L10 10z' });
+        function randomInRange(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
         confetti({
-            shapes: [triangle]
+            angle: randomInRange(55, 125),
+            spread: randomInRange(50, 70),
+            particleCount: randomInRange(50, 100),
+            origin: { y: 0.6 }
         });
-    }, []); // O array vazio assegura que isso seja executado apenas uma vez após a montagem
+    }, []);
 
     return (
         <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
