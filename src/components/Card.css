@@ -1,12 +1,13 @@
 .card {
     position: relative;
+    z-index: 1
   }
   .card img {
     margin: 0;
     padding: 0;
-    width: 80%; /* Shoud be 100% not 70%, width of the column should be manage in the grid container setting */
+    width: 80%; 
     object-fit: cover;
-    /* border: solid red; */
+    border: solid #8b710b;
     border-radius:20px ;
     column-gap: 0px;
   }

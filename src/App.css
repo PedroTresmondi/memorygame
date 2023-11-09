@@ -38,6 +38,11 @@ button:hover {
   /* Painéis são empilhados em telas estreitas */
 }
 
+.player-info {
+  display: flex;
+  justify-content: space-around;
+}
+
 @media (min-width: 768px) {
   .game-container {
     grid-template-columns: 1fr 1fr 1fr;
@@ -61,22 +66,26 @@ button:hover {
   gap: 50px;
   background-color: #c2386640;
   border-collapse: collapse;
-  
+  margin-bottom: 30px;
+  margin-top: 30px;
+
 
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid;
   width: 50%;
 }
 
-table{
+table {
   border-radius: 10px;
 }
 
 #confetti-canvas {
-  position:absolute;
-  top:0;
+  position: absolute;
+  top: 0;
 }
 
 
@@ -86,12 +95,19 @@ table{
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(-20px);
   }
+
   60% {
     transform: translateY(-10px);
   }
@@ -102,33 +118,49 @@ table{
 }
 
 h2.animate-points-fade {
-  visibility: hidden; /* Evita que o elemento ocupe espaço após a animação */
+  visibility: hidden;
+  /* Evita que o elemento ocupe espaço após a animação */
 }
 
 .rainbow-text {
   animation: rainbow 2s linear infinite;
 }
 
+
+
 @keyframes rainbow {
   0% {
-    color: #ff0000; /* Vermelho */
+    color: #ff0000;
+    /* Vermelho */
   }
+
   16.666% {
-    color: #ff8000; /* Laranja */
+    color: #ff8000;
+    /* Laranja */
   }
+
   33.333% {
-    color: #ffff00; /* Amarelo */
+    color: #ffff00;
+    /* Amarelo */
   }
+
   50% {
-    color: #80ff00; /* Verde */
+    color: #80ff00;
+    /* Verde */
   }
+
   66.666% {
-    color: #00ff80; /* Azul-Verde */
+    color: #00ff80;
+    /* Azul-Verde */
   }
+
   83.333% {
-    color: #0080ff; /* Azul */
+    color: #0080ff;
+    /* Azul */
   }
+
   100% {
-    color: #8000ff; /* Roxo */
+    color: #8000ff;
+    /* Roxo */
   }
 }
