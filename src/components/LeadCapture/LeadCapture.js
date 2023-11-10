@@ -9,7 +9,7 @@ function LeadCapture({ onStartGame, onCardTurn }) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
-    const [points, setPoints] = useState(0);
+    const [points] = useState(0);
 
 
 

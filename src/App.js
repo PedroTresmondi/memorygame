@@ -15,25 +15,24 @@ function App() {
   const [cards, setCards] = useState([]);
   const [leadData, setLeadData] = useState(null);
   const [turns, setTurns] = useState(10);
-  const [choices, setChoices] = useState([]);
+  const [, setChoices] = useState([]);
   const [points, setPoints] = useState(0); // Único estado para pontos
   const [victory, setVictory] = useState(false);
   const [defeat, setDefeat] = useState(false);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
-  const [Disabled, setDisabled] = useState(false);
+  const [, setDisabled] = useState(false);
   const [sequenceCount, setSequenceCount] = useState(0);
-  const [animatePoints, setAnimatePoints] = useState(false);
+  const [, setAnimatePoints] = useState(false);
   const [countingPoints, setCountingPoints] = useState(false);
   const [totalPoints] = useState(0);
-  const [showModal, setShowModal] = useState(true);
-  const [turnPoints, setTurnPoints] = useState(0)
+  const [, setShowModal] = useState(true);
 
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
-  // Shuffle cards for a new game
+  // Embaralha cartas para um novo jogo
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
@@ -108,6 +107,7 @@ function App() {
         setTimeout(() => resetTurn(), 1000);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [choiceOne, choiceTwo]);
 
 
@@ -118,6 +118,7 @@ function App() {
     } else if (turns === 0) {
       handleGameOver(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards, turns]);
   const handleGameOver = (isWinner) => {
     if (isWinner) {

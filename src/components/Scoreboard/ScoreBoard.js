@@ -66,7 +66,7 @@ function ScoreBoard({ points, currentPlayerName }) {
                 <thead>
                     <tr>
                         <th colSpan="2" className='title'>
-                            Scoreboard
+                            <b>Scoreboard</b>
                         </th>
                     </tr>
                     <tr>
