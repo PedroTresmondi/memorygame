@@ -1,7 +1,10 @@
 .App {
   max-width: 100%;
   margin: 20px auto;
-  padding: 0 10px;
+ 
+  display: flex;
+
+  justify-content: center;
 }
 
 button {
