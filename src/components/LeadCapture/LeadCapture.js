@@ -11,20 +11,19 @@ function LeadCapture({ onStartGame, onCardTurn }) {
     const [phone, setPhone] = useState("");
     const [points] = useState(0);
 
-
+    // Verifique se os dados do usuário já existem no sessionStorage
+    // Usuário com os mesmos dados já existe, inicie o jogo com os dados existentes
+    // Usuário não encontrado no sessionStorage, crie um novo registro
 
     const handleStartGame = () => {
         if (name && email && phone) {
-            // Verifique se os dados do usuário já existem no sessionStorage
             const storedUserData = JSON.parse(sessionStorage.getItem('userData'));
             if (storedUserData && storedUserData.name === name && storedUserData.email === email) {
-                // Usuário com os mesmos dados já existe, inicie o jogo com os dados existentes
                 onStartGame(storedUserData);
             } else {
-                // Usuário não encontrado no sessionStorage, crie um novo registro
                 const lead = { name, email, phone, points };
                 onCardTurn(points)
-                saveLead(lead); // Salva o lead no localStorage
+                saveLead(lead);
                 sessionStorage.setItem('userData', JSON.stringify(lead)); // Armazena os dados no sessionStorage
                 onStartGame(lead);
                 saveScoreboardData(name, points); // Salva o nome e pontos no Scoreboard
@@ -34,9 +33,9 @@ function LeadCapture({ onStartGame, onCardTurn }) {
         }
     }
 
-    // Função para formatar o campo de telefone com os parênteses automaticamente
+    // Função para formatar o campo de telefone com os parênteses automaticamente e remove caracteres não numéricos
     const formatPhoneNumber = (input) => {
-        let formattedPhone = input.replace(/\D/g, ''); // Remove caracteres não numéricos
+        let formattedPhone = input.replace(/\D/g, '');  
         if (formattedPhone.length >= 2) {
             formattedPhone = `(${formattedPhone.slice(0, 2)}) ${formattedPhone.slice(2)}`;
         }

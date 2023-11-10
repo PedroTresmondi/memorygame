@@ -31,8 +31,7 @@ const VictoryModal = ({ points, turns, onRestart, totalPoints, onClose }) => {
 
         return nextPoints;
       });
-    }, 10); // Ajuste o intervalo conforme necessário para a velocidade desejada
-
+    }, 10);
     // Limpa o intervalo quando o componente é desmontado
     return () => clearInterval(intervalId);
   }, [points]);
@@ -45,12 +44,12 @@ const VictoryModal = ({ points, turns, onRestart, totalPoints, onClose }) => {
   return (
     <div className="victory-modal-overlay">
       <div className="victory-modal">
-        <h1>Parabéns!</h1>
-        <p>Você encontrou todas as combinações!</p>
-        <div className="counting-points">
+        <h1 className='victory-title' >Vitória</h1>
+        <p className='victory-text'>
+          <p>Você encontrou todas as combinações!</p>
           <p>Pontuação de turnos: {turns * 1000}</p>
           <p>Pontuação Final: {displayedPoints}</p>
-        </div>
+        </p>
         <div className="modal-buttons">
           <button onClick={onRestart}>Tentar de Novo</button>
           <button onClick={handleClose}>Trocar de usuário</button>

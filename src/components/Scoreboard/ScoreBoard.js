@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getScoreboardData } from '../../utils/scoreboardUtils';
 import './Scoreboard.css'
 
-function ScoreBoard({ points, currentPlayerName, totalPoints, scoreboardData }) {
+function ScoreBoard({ points, currentPlayerName }) {
     const [playerData, setPlayerData] = useState([]);
 
     useEffect(() => {
@@ -41,7 +41,6 @@ function ScoreBoard({ points, currentPlayerName, totalPoints, scoreboardData }) 
                     }));
                 // Classifica os dados do placar
                 scoreboardData.sort((a, b) => b.points - a.points);
-                // Atualiza o estado
                 setPlayerData(scoreboardData);
             }
         }

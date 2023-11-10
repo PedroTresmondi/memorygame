@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import SingleCard from './components/Card/Card';
 import LeadCapture from './components/LeadCapture/LeadCapture';
-
 import ScoreBoard from './components/Scoreboard/ScoreBoard';
+
 import { updateUserPointsInScoreboard, updateScoreboard } from './utils/scoreboardUtils';
+
 import { cardImages } from './components/Card/cardImages';
 import VictoryModal from './components/Modals/VictoryModal';
-import DefeatModal from './components/Modals/DefeatModal'; // Importa o novo modal
-
+import DefeatModal from './components/Modals/DefeatModal';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   const [leadData, setLeadData] = useState(null);
   const [turns, setTurns] = useState(10);
   const [, setChoices] = useState([]);
-  const [points, setPoints] = useState(0); // Único estado para pontos
+  const [points, setPoints] = useState(0);
   const [victory, setVictory] = useState(false);
   const [defeat, setDefeat] = useState(false);
   const [choiceOne, setChoiceOne] = useState(null);
@@ -27,6 +27,7 @@ function App() {
   const [countingPoints, setCountingPoints] = useState(false);
   const [totalPoints] = useState(0);
   const [, setShowModal] = useState(true);
+  const [rainbowText, setRainbowText] = useState(false);
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -45,10 +46,8 @@ function App() {
     setDefeat(false);
     setPoints(0);
     setSequenceCount(0);
-    setAnimatePoints(false); 
+    setAnimatePoints(false);
   };
-
-  const [rainbowText, setRainbowText] = useState(false);
 
   useEffect(() => {
     if (sequenceCount > 3) {
@@ -77,12 +76,13 @@ function App() {
       setDisabled(true);
 
       if (choiceOne.src === choiceTwo.src) {
-        const sequenceMultiplier = sequenceCount + 1; // Multiplicador de pontos com base na sequência
+        // Multiplicador de pontos com base na sequência
+        const sequenceMultiplier = sequenceCount + 1;
         const newPoints = points + 350 * sequenceMultiplier;
 
         setPoints(newPoints);
         updateUserPointsInScoreboard(leadData.name, newPoints);
-        setAnimatePoints(true); // Ativar animação
+        setAnimatePoints(true);
 
         setCards((prevCards) => {
           return prevCards.map((card) => {
@@ -154,7 +154,7 @@ function App() {
     shuffleCards();
     setSequenceCount(0);
     setPoints(0)
-    
+
   };
 
   const resetTurn = () => {

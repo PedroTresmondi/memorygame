@@ -20,7 +20,6 @@ export const updateGeneralScoreboard = (entry) => {
 
     // Adiciona a nova entrada aos dados existentes
     prevScoreBoard.push(entry);
-
     localStorage.setItem('scoreboard', JSON.stringify(prevScoreBoard));
 };
 
@@ -37,7 +36,6 @@ export const updateScoreboard = (userName, totalPoints) => {
     } else {
         scoreboardData.push({ name: userName, points: totalPoints });
     }
-
     // Classifica os dados do placar com base nos pontos em ordem decrescente
     scoreboardData.sort((a, b) => b.points - a.points);
 
@@ -58,8 +56,7 @@ export const getScoreboardData = () => {
 export const saveScoreboardData = (name, points, totalPoints) => {
     // Obtém os dados do placar do armazenamento local ou inicializa como um array vazio
     const scoreboardData = JSON.parse(localStorage.getItem('scoreboard')) || [];
-
-    // Adiciona uma nova entrada aos dados existentes
+    
     scoreboardData.push({ name, points });
 
     // Armazena os dados atualizados no armazenamento local
