@@ -17,25 +17,26 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: radial-gradient(circle, transparent 0%, #ffffff3e 40%, transparent 80%);
+        /* background: radial-gradient(circle, transparent 0%, #ffffff6f 40%, transparent 80%); */
         border-radius: 10px;
-        animation: glow 2s ease-in-out infinite;
+        /* animation: glow 5s ease-in-out infinite; */
     }
 }
 
-@keyframes glow {
+/* @keyframes glow {
+
 
     0%,
     100% {
-        transform: scale(0.2);
-        opacity: 0.6;
+        transform: scale(0.5);
+        opacity: 0.1;
     }
 
     50% {
-        transform: scale(0.7);
-        opacity: 0.2;
+        transform: scale(1);
+        opacity: 0.1;
     }
-}
+} */
 
 .victory-modal {
     position: relative;
@@ -52,15 +53,15 @@
 
 @keyframes victoryBackgroundAnimation {
     0% {
-        background-color: #01301c;
+        background-color: #204c39;
     }
 
     50% {
-        background-color: #394a03;
+        background-color: #6f8817;
     }
 
     100% {
-        background-color: #116943
+        background-color: #295f48
     }
 }
 

@@ -8,9 +8,9 @@
     justify-content: center;
     align-items: center;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.441);
+    background-color: rgba(95, 133, 117, 0.34)
 
-
+/* 
     &::before {
         content: '';
         position: absolute;
@@ -22,10 +22,10 @@
         border-radius: 10px;
         animation: glow 2s ease-in-out infinite;
 
-    }
+    } */
 }
 
-@keyframes glow {
+/* @keyframes glow {
 
     0%,
     100% {
@@ -37,7 +37,7 @@
         transform: scale(1);
         opacity: 0.5;
     }
-}
+} */
 
 .defeat-modal {
     position: relative;
