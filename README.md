@@ -36,28 +36,10 @@ npm install
     
 ## Rodando localmente
 
-Clone o projeto
+Para iniciar a aplicacao 
 
 ```bash
-  git clone https://github.com/PedroTresmondi/memorygame.git
-```
-
-Entre no diretório do projeto
-
-```bash
-  cd my-project
-```
-
-Instale as dependências
-
-```bash
-  npm install
-```
-
-Inicie o servidor
-
-```bash
-  npm run start
+  npm start
 ```
 
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import ScoreBoard from './components/Scoreboard/ScoreBoard';
+import ScoreBoard from './ScoreBoard';
 
 // Mock da função getScoreboardData
-jest.mock('./utils/scoreboardUtils', () => ({
+jest.mock('../../utils/scoreboardUtils', () => ({
   getScoreboardData: jest.fn(),
 }));
 
@@ -21,7 +21,7 @@ describe('ScoreBoard Component', () => {
     ];
 
     // Mockando a função getScoreboardData para retornar os dados do placar
-    jest.spyOn(require('./utils/scoreboardUtils'), 'getScoreboardData').mockReturnValue(mockScoreboardData);
+    jest.spyOn(require('../../utils/scoreboardUtils'), 'getScoreboardData').mockReturnValue(mockScoreboardData);
 
     render(<ScoreBoard points={0} currentPlayerName="TestPlayer" />);
 
@@ -37,7 +37,7 @@ describe('ScoreBoard Component', () => {
       { name: 'Player2', points: 80 },
     ];
 
-    jest.spyOn(require('./utils/scoreboardUtils'), 'getScoreboardData').mockReturnValue(mockScoreboardData);
+    jest.spyOn(require('../../utils/scoreboardUtils'), 'getScoreboardData').mockReturnValue(mockScoreboardData);
 
     render(<ScoreBoard points={100} currentPlayerName="TestPlayer" />);
 
@@ -53,7 +53,7 @@ describe('ScoreBoard Component', () => {
       { name: 'Player2', points: 80 },
     ];
 
-    jest.spyOn(require('./utils/scoreboardUtils'), 'getScoreboardData').mockReturnValue(mockScoreboardData);
+    jest.spyOn(require('../../utils/scoreboardUtils'), 'getScoreboardData').mockReturnValue(mockScoreboardData);
 
     render(<ScoreBoard points={50} currentPlayerName="NewPlayer" />);
 

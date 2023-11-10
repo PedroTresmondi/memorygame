@@ -36,7 +36,7 @@ global.sessionStorage = {
 
 test('renderiza o componente LeadCapture sem erros', () => {
     render(<LeadCapture />);
-    expect(screen.getByText(/Captura de Leads/i)).toBeInTheDocument();
+    expect(screen.getByText(/Insira seus dados/i)).toBeInTheDocument();
 });
 
 test('inicia o jogo com os dados do sessionStorage se já existirem', () => {
@@ -50,6 +50,6 @@ test('inicia o jogo com os dados do sessionStorage se já existirem', () => {
     render(<LeadCapture />);
     fireEvent.click(screen.getByText(/Iniciar Jogo/i));
 
-    expect(screen.getByText(/Captura de Leads/i)).toBeInTheDocument();
+    expect(screen.getByText(/Insira seus dados/i)).toBeInTheDocument();
 });
 

@@ -45,11 +45,11 @@ const VictoryModal = ({ points, turns, onRestart, totalPoints, onClose }) => {
     <div className="victory-modal-overlay">
       <div className="victory-modal">
         <h1 className='victory-title' >Vitória</h1>
-        <p className='victory-text'>
+        <div className='victory-text'>
           <p>Você encontrou todas as combinações!</p>
           <p>Pontuação de turnos: {turns * 1000}</p>
           <p>Pontuação Final: {displayedPoints}</p>
-        </p>
+        </div>
         <div className="modal-buttons">
           <button onClick={onRestart}>Tentar de Novo</button>
           <button onClick={handleClose}>Trocar de usuário</button>
