@@ -6,8 +6,6 @@
     border-collapse: collapse;
     margin-bottom: 20px;
     margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
   }
   
   table,
@@ -18,6 +16,6 @@
   
   table {
     border-radius: 10px;
-    width: 100%; /* Defina a largura da tabela como 100% */
+    width: 100%; 
   }
   

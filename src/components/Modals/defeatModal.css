@@ -14,11 +14,12 @@
 .modal-buttons {
     margin-bottom: 50px;
     display: flex;
+    margin-top: 50px;
     gap: 30px;
     justify-content: space-between;
 }
 
-/* Adicione estilos para o modal de vitória */
+
 .defeat-modal {
     position: relative;
     background-color: #472034;
@@ -27,6 +28,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-align: center;
     z-index: 2;
+    margin-left: 35px;
     animation: defeatBackgroundAnimation 3s infinite alternate;
 
 }

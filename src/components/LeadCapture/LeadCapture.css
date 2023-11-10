@@ -1,29 +1,64 @@
-.modal {
-    background-color: rgba(132, 0, 255, 0.235);
-    width: 300px; /* Largura do modal */
-    padding: 20px;
-    text-align: center;
-    position: fixed;
-    top: 50%; /* Centraliza verticalmente no meio da tela */
-    left: 50%; /* Centraliza horizontalmente no meio da tela */
-    transform: translate(-50%, -50%); /* Corrige a posição centralizada */
-    border-radius: 5px;
+.lead-modal {
+  background-color: rgba(132, 0, 255, 0.235);
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 7px;
+  margin-top: 20px; 
+  margin-bottom: 20px;
+  animation: leadBackgroundAnimation 10s infinite alternate;
+}
+
+.lead-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.441);
+}
+
+@keyframes leadBackgroundAnimation {
+  0% {
+      background-color: #4c204a;
   }
-  
-  /* Estilo para os campos de input */
-  .form-group {
-    margin-bottom: 15px;
-    color: #ffff;
-    text-align: center; /* Centraliza os campos de input */
+
+  50% {
+      background-color: #120211;
   }
-  
-  .form-group input {
-    font-weight: 400;
-    color: #ffff;
-    width: 80%; /* Torna os inputs do mesmo tamanho */
-    padding: 10px;
-    border: none; /* Remove a borda dos inputs */
-    background-color: transparent; /* Remove o fundo dos inputs */
-    border-bottom: 1px solid #ffffff; /* Adiciona uma borda na parte inferior dos inputs */
-    outline: none; /* Remove o contorno ao focar nos inputs */
+
+  100% {
+      background-color: #3f0137
   }
+}
+
+.form-group {
+  margin-bottom: 15px;
+  margin-top: 20px;
+  color: #ffff;
+  text-align: center;
+}
+
+.form-group input {
+  font-weight: 400;
+  color: #ffff;
+  width: 80%;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #ffffff;
+  outline: none;
+}
+
+button{
+  margin-top: 20px;
+  margin-bottom: 20px ;
+}

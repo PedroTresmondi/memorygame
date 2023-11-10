@@ -14,15 +14,16 @@
 .modal-buttons {
     margin-bottom: 50px;
     display: flex;
+    margin-top: 50px;
     gap: 30px;
     justify-content: space-between;
 }
 
-/* Adicione estilos para o modal de vitória */
 .victory-modal {
     position: relative;
     background-color: #472034;
     padding: 20px;
+    margin-left: 35px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -31,7 +32,6 @@
 
 }
 
-/* Adicione a animação de fundo */
 @keyframes VictoryBackgroundAnimation {
     0% {
         background-color: #204c39;

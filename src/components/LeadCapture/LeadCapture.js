@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { saveScoreboardData  } from '../../utils/scoreboardUtils';
+import { saveScoreboardData } from '../../utils/scoreboardUtils';
 
 import './LeadCapture.css'
 
@@ -50,54 +50,56 @@ function LeadCapture({ onStartGame, onCardTurn }) {
     }
 
     return (
-        <div className="modal">
-            <h2>Captura de Leads</h2>
-            <ToastContainer
-                position="top-center"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-            />
-            <div className="form-group">
-                <input
-                    type="text"
-                    placeholder="Nome"
-                    value={name}
-                    onChange={(e) => {
-                        const inputValue = e.target.value.replace(/[^A-Za-z ]/g, ''); // Permite apenas letras e espaços
-                        setName(inputValue);
-                    }}
-                    maxLength={30}
+        <div className="lead-modal-overlay">
+            <div className="lead-modal">
+                <h2>Insira seus dados</h2>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="dark"
                 />
+                <div className="form-group">
+                    <input
+                        type="text"
+                        placeholder="Nome"
+                        value={name}
+                        onChange={(e) => {
+                            const inputValue = e.target.value.replace(/[^A-Za-z ]/g, ''); // Permite apenas letras e espaços
+                            setName(inputValue);
+                        }}
+                        maxLength={30}
+                    />
+                </div>
+                <div className="form-group">
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        maxLength={30}
+                    />
+                </div>
+                <div className="form-group">
+                    <input
+                        type="text"
+                        placeholder="(DD) XXXXX-XXXX"
+                        value={formatPhoneNumber(phone)}
+                        onChange={(e) => {
+                            const inputValue = e.target.value;
+                            setPhone(inputValue);
+                        }}
+                        maxLength={14}
+                    />
+                </div>
+                <button onClick={handleStartGame}>Iniciar Jogo</button>
             </div>
-            <div className="form-group">
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    maxLength={30}
-                />
-            </div>
-            <div className="form-group">
-                <input
-                    type="text"
-                    placeholder="(DD) XXXXX-XXXX"
-                    value={formatPhoneNumber(phone)}
-                    onChange={(e) => {
-                        const inputValue = e.target.value;
-                        setPhone(inputValue);
-                    }}
-                    maxLength={14}
-                />
-            </div>
-            <button onClick={handleStartGame}>Iniciar Jogo</button>
         </div>
     );
 }

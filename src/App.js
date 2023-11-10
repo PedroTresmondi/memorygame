@@ -40,7 +40,7 @@ function App() {
       .map((card) => ({ ...card, id: Math.random() }));
 
     setCards(shuffledCards);
-    setTurns(15);
+    setTurns(20);
     setChoices([]);
     setVictory(false);
     setDefeat(false);
