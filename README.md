@@ -7,6 +7,12 @@
 
 ![App Screenshot](https://res.cloudinary.com/practicaldev/image/fetch/s--5tuoyVED--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7tx1k5jud6je10jv5nj0.png)
 
+O jogo grava os pontos no placar pelo LocalStorage
+e o jogador tem 20 turnos para encontrar as combinacoes.
+<br>
+Depois de tres sequencias consecutivas, os pontos sao multiplicados ate o jogador errar e quebrara sequencia.
+<br>
+No fim da partida os turnos nao usados sao convertidos para pontos 
 
 ## Instalação
 1- Clone este repositório:
