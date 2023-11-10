@@ -1,7 +1,9 @@
 
 #MemoryGame para phygital 
 
-
+Link para jogar sem precisar baixar o projeto:
+<br>
+(https://memorygame-kohl.vercel.app/)
 
 ## Screenshots
 
@@ -33,10 +35,9 @@ cd memorygame
 npm install
 ```
 
-    
 ## Rodando localmente
 
-Para iniciar a aplicacao 
+Para iniciar a aplicação 
 
 ```bash
   npm start
