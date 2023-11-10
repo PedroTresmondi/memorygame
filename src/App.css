@@ -44,8 +44,8 @@ button:hover {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: normal !important;
-  
+  align-items: center;
+
 }
 
 .card-grid {
@@ -54,7 +54,7 @@ button:hover {
   gap: 10px;
   width: 90%;
   max-height: 95vh;
-  
+
 }
 
 .player-info {
@@ -65,6 +65,7 @@ button:hover {
   align-items: center;
   justify-content: space-around;
 }
+
 
 @media (min-width: 760px) {
   .game-container {
@@ -77,30 +78,13 @@ button:hover {
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 660px) {
+
   .right-panel {
     display: flex;
+    align-items: normal;
   }
 }
-
-@media (max-width: 1000px) {
-  .right-panel {
-    align-items: center;
-  }
-}
-
-@media (min-width: 900px) {
-  .right-panel {
-    display: flex;
-  }
-}
-
-@media (min-width: 500px) {
-  .right-panel {
-    display: flex;
-  }
-}
-
 
 #confetti-canvas {
   position: absolute;

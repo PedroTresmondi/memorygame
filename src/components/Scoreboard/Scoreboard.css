@@ -9,6 +9,7 @@
   max-height: 500px;
 }
 
+
 table,
 th,
 td {
@@ -19,4 +20,11 @@ td {
 table {
   border-radius: 10px;
   width: 100%;
+}
+
+@media (max-width: 760px) {
+  .scoreboard{
+    max-height: 150px;
+  }
+  
 }
