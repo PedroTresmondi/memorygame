@@ -16,7 +16,26 @@ const VictoryModal = ({ points, turns, onRestart, totalPoints, onClose }) => {
       particleCount: randomInRange(50, 100),
       origin: { y: 0.6 },
     });
-  }, []);
+
+    // Inicia a contagem dos pontos gradualmente
+    const intervalId = setInterval(() => {
+      setDisplayedPoints((prevPoints) => {
+        const increment = 100;
+        const nextPoints = prevPoints + increment;
+
+        // Quando atingir a pontuação real, limpa o intervalo
+        if (nextPoints >= points) {
+          clearInterval(intervalId);
+          return points;
+        }
+
+        return nextPoints;
+      });
+    }, 10); // Ajuste o intervalo conforme necessário para a velocidade desejada
+
+    // Limpa o intervalo quando o componente é desmontado
+    return () => clearInterval(intervalId);
+  }, [points]);
 
   const handleClose = () => {
     onClose();
@@ -30,8 +49,7 @@ const VictoryModal = ({ points, turns, onRestart, totalPoints, onClose }) => {
         <p>Você encontrou todas as combinações!</p>
         <div className="counting-points">
           <p>Pontuação de turnos: {turns * 1000}</p>
-          <p>Pontuação Final: {points}</p>
-          
+          <p>Pontuação Final: {displayedPoints}</p>
         </div>
         <div className="modal-buttons">
           <button onClick={onRestart}>Tentar de Novo</button>

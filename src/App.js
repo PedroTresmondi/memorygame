@@ -44,8 +44,8 @@ function App() {
     setVictory(false);
     setDefeat(false);
     setPoints(0);
-    setSequenceCount(0); // Zera a contagem de sequência
-    setAnimatePoints(false); // Desativa a animação de pontos
+    setSequenceCount(0);
+    setAnimatePoints(false); 
   };
 
   const [rainbowText, setRainbowText] = useState(false);
@@ -154,6 +154,7 @@ function App() {
     shuffleCards();
     setSequenceCount(0);
     setPoints(0)
+    
   };
 
   const resetTurn = () => {
